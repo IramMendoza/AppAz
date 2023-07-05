@@ -12,7 +12,7 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
     }
   
     const numbers = []
-    for (let i = 1; i <= 99; i++) {
+    for (let i = 1; i <= 10; i++) {
         numbers.push(<option value={i}>{i}</option>)
     }
 

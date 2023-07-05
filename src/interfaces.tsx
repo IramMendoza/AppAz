@@ -26,8 +26,13 @@ export interface Product {
   price: number
   amount: number
   id: number
+  img: string
   }
 
 export interface AppState { 
   menuTables: string
   }
+
+export interface Products {
+  products: Array<Product>
+}
