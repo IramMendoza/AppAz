@@ -1,30 +1,33 @@
 export interface Action {
-    type : string
-    payload? : any 
+  type : string
+  payload? : any 
   }
 
-export interface Product {
-    type : string
-    price : number
+export interface ProductBasic {
+  type : string
+  price : number
 }
 
 export interface InitialState {
-    menuTables : string
-    productList : Product[]
+  menuTables : string
+  productList : Product[]
 }
 
 export interface ProductCardProps {
-    product: string
-    price: number
-    img: string
-    id: number
+  product: string
+  price: number
+  img: string
+  id: number
   }
 
-  export interface Product {
-    product: string
-    type: string
-    price: number
-    amount: number
-    id: number
+export interface Product {
+  product: string
+  type: string
+  price: number
+  amount: number
+  id: number
   }
 
+export interface AppState { 
+  menuTables: string
+  }

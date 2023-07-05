@@ -30,6 +30,8 @@ const reducer = (state = initialState, action : Action ) => {
             }
             else return { ...state }
 
+        
+
         default:
             return state
     }

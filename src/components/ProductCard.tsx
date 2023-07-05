@@ -1,10 +1,9 @@
-import React from 'react'
 import { useDispatch } from 'react-redux';
 import { addProductToList } from '../actions';
 import { ProductCardProps } from '../interfaces'
 
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, price, img, id }) => {
+const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
 
     const dispatch = useDispatch()
 
