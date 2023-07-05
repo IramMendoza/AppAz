@@ -1,3 +1,4 @@
+
 export interface Action {
   type : string
   payload? : any 
@@ -17,7 +18,7 @@ export interface ProductCardProps {
   product: string
   price: number
   img: string
-  id: number
+  id: string
   }
 
 export interface Product {

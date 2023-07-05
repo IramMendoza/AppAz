@@ -15,7 +15,8 @@ const Navbar = () => {
   }
 
   return (
-    <div className=" bg-gray-800 flex justify-around">
+    <div className=" bg-gray-800 flex justify-around fixed top-0 w-screen">
+
         <button
         className=" text-white"
         onClick={handleClickMenu}>
@@ -27,6 +28,7 @@ const Navbar = () => {
         onClick={handleClickTables}>
           Mesas
         </button>
+        
     </div>
   )
 }
