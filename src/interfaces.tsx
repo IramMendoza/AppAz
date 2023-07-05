@@ -13,3 +13,18 @@ export interface InitialState {
     productList : Product[]
 }
 
+export interface ProductCardProps {
+    product: string
+    price: number
+    img: string
+    id: number
+  }
+
+  export interface Product {
+    product: string
+    type: string
+    price: number
+    amount: number
+    id: number
+  }
+

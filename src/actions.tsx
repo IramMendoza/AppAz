@@ -13,3 +13,12 @@ export const changeToTables = () => {
         type: CHANGE_TO_TABLES
     }
 }
+
+export const ADD_PRODUCT_TO_LIST = "ADD_PRODUCT_TO_LIST"
+
+export const addProductToList = (product : string) => {
+    return {
+        type: ADD_PRODUCT_TO_LIST,
+        payload: product 
+    }
+}
