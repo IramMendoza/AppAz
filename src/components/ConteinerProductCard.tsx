@@ -13,7 +13,7 @@ const ConteinerProductCard= ({ children, title } : Props ) => {
         {title}
         </h1>
         <div className=" flex justify-center w-full">
-            <div className=" w-full flex overflow-x-auto pt-5 pb-[5rem]">
+            <div className=" w-full flex overflow-x-auto pt-5 pb-[3rem]">
                 {children}
             </div>
         </div>

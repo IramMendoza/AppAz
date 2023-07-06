@@ -18,7 +18,7 @@ export interface ProductCardProps {
   product: string
   price: number
   img: string
-  id: string
+  key: string
   }
 
 export interface Product {
