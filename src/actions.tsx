@@ -22,3 +22,12 @@ export const addProductToList = (product : string) => {
         payload: product 
     }
 }
+
+export const DELETE_PRODUCT_FROM_LIST = "DELETE_PRODUCT_FROM_LIST"
+
+export const deleteProductFromList = (product : string) => {
+    return {
+        type: DELETE_PRODUCT_FROM_LIST,
+        payload: product
+    }
+}

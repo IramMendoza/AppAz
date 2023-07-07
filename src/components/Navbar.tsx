@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux"
 import { changeToMenu } from "../actions"
 import { changeToTables } from "../actions"
 import Logo from '../assets/Logo menroz.png'
-import MenuIcon from '../assets/menuIconPng.png'
+import Menu from '../assets/fast-food-Icon.png'
 import TablesIcon from '../assets/tableIconPng.png'
 
 const Navbar = () => {
@@ -18,15 +18,15 @@ const Navbar = () => {
   }
 
   return (
-    <div className=" bg-gray-800 flex justify-around fixed top-0 w-screen">
+    <div className=" bg-gray-900 flex justify-around fixed top-0 w-screen">
 
       <img
       className="w-[7%] m-2" 
       src={Logo}/>
 
       <img
-      className="w-[7%] h-[9%] m-2 mt-3"
-      src={MenuIcon}
+      className="w-[9%] h-[8%] m-2 mt-3"
+      src={Menu}
       onClick={handleClickMenu}/>
 
       <img

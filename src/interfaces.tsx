@@ -12,13 +12,14 @@ export interface ProductBasic {
 export interface InitialState {
   menuTables : string
   productList : Product[]
+  cart: string
 }
 
 export interface ProductCardProps {
   product: string
   price: number
   img: string
-  key: string
+  id: string
   }
 
 export interface Product {

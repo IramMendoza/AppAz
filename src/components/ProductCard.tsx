@@ -9,6 +9,7 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
 
     function handleClickAdd () {
         dispatch( addProductToList( product ) )
+        console.log(typeof(product), product)
     }
     // Dispatch para agregar el producto a productList en el reducer
   
@@ -37,14 +38,14 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
             </p>
 
             <p
-            className=' text-center'>
+            className=' text-center text-slate-700'>
             {price}$
             </p>
 
             <div 
             className='w-full flex justify-center'>
                 <label 
-                className='mr-3'>Cantidad</label>
+                className='mr-3 text-slate-700'>Cantidad</label>
                 <select
                 className=''
                 name="amount">{numbers}</select>
@@ -53,7 +54,7 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
             <div 
             className='flex justify-center'>
                 <button
-                className=' bg-teal-600 text-white rounded-2xl pr-2 pl-2 m-1 pb-1 mb-2' 
+                className=' bg-gradient-to-r from-cyan-600 to-lime-600 text-white rounded-2xl pr-2 pl-2 m-1 pb-1 mb-2' 
                 onClick={handleClickAdd}>Agregar</button>
             </div>
 
