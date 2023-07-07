@@ -33,7 +33,7 @@ const Menu : React.FC = () => {
         <ProductCard product="Michelada Cubana" price={85} id="8" img={micheladaCubana}/>
       </ConteinerProductCard>
       
-      <div className=" p-8"/>
+      <div className=" p-8 pb-[10rem]"/>
     </div>
   )
 }

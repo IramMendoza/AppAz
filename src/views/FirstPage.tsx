@@ -24,7 +24,7 @@ const FirstPage = () => {
         <motion.div
         initial={{ y : 500 }}
         animate={{ y : 0 }}
-        className=' md:flex md:justify-around xsm:flex xsm:flex-col text-white text-xl'>
+        className=' md:flex md:justify-around xsm:flex xsm:flex-col sm:flex sm:flex-col text-white text-xl'>
             <div className=' xsm:w-full xsm:flex justify-center mt-3'>
                 <Link to='/desktop' 
                 className='  bg-emerald-700 p-2 rounded-xl xsm:w-[35%] xsm:text-lg text-center'>

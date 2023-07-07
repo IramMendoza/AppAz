@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import { motion } from "framer-motion"
 import { InitialState, Product } from "../interfaces"
 import Burger from '../assets/burger.png'
 import Beer from '../assets/beer.png'
@@ -17,17 +18,22 @@ const IconsCart = ({ handleCart} : Props) => {
     className="w-full flex justify-center"
     onClick={handleCart}>
             {
-                productList.length === 0 ? <p className=" text-center mt-2 mb-2">Vacio</p> :
+                productList.length === 0 ? <p className=" text-center font-medium text-lg mt-2 mb-2 p-1">Vacio</p> :
 
                     <div className=" flex justify-center overflow-x-auto w-[85%]">
                         {
                             productList.map( (product => {
                                 return (
-                                    <div className=" w-[10%] m-2">
+                                    <motion.div 
+                                    className=" w-[40px] m-2"
+                                    initial={{ scale : 1 }}
+                                    animate={{ scale : [1,1.5,1] }}
+                                    transition={{ duration : 0.2 }}
+                                    >
                                         {product.type === 'burger' ? <img src={Burger} /> : <div />}
                                         {product.type === 'beer' ? <img src={Beer} /> : <div />}
                                         {product.type === 'complement' ? <img src={Fries} /> : <div />}
-                                    </div>
+                                    </motion.div>
                                 )
                             }
                             )
