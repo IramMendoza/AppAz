@@ -20,7 +20,7 @@ const ProductOnList = ({product, price, amount, id} : ProductOnList) => {
 
   return (
     <motion.div
-    className=" flex justify-around bg-slate-200 rounded-2xl h-[2rem] p-1 m-1 mr-3 ml-3 w-[90%] shadow-2xl" 
+    className=" flex justify-around bg-slate-200 rounded-3xl h-[2rem] p-1 px-2 mt-2 mb-1 w-[95%] shadow-2xl" 
     key={id}
     initial={{ x : -500 }}
     animate={{ x : 0 }}
@@ -36,7 +36,7 @@ const ProductOnList = ({product, price, amount, id} : ProductOnList) => {
           x{amount}
         </motion.p>
 
-        <div className=' overflow-visible w-[28px]'>
+        <div className=' w-[25px]'>
           <img
           onClick={handleDelete}
           src={Cross}/>

@@ -18,19 +18,19 @@ const Navbar = () => {
   }
 
   return (
-    <div className=" bg-gray-900 flex justify-around rounded-b-3xl shadow-2xl fixed top-0 w-screen">
+    <div className=" bg-gray-800 flex justify-around xsm:rounded-b-3xl sm:rounded-b-3xl shadow-2xl fixed top-0 w-full pb-2">
 
       <img
-      className="w-[5%] h-[8%] mt-3" 
+      className="w-[20px] mt-3" 
       src={Logo}/>
 
       <img
-      className="w-[8%] h-[8%] m-2 mr-1 mt-3 p-1"
+      className="w-[30px] m-2 mr-1 mt-3"
       src={Menu}
       onClick={handleClickMenu}/>
 
       <img
-      className=" text-white w-[9%] h-[12%] m-2 mt-3 p-1"
+      className=" text-white w-[35px] mt-3 mb-1"
       src={TablesIcon}
       onClick={handleClickTables}/>
 

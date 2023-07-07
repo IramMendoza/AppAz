@@ -25,7 +25,7 @@ const IconsCart = ({ handleCart} : Props) => {
                             productList.map( (product => {
                                 return (
                                     <motion.div 
-                                    className=" w-[40px] m-2"
+                                    className=" w-[32px] m-2 my-3"
                                     initial={{ scale : 1 }}
                                     animate={{ scale : [1,1.5,1] }}
                                     transition={{ duration : 0.2 }}

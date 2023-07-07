@@ -2,6 +2,7 @@ import { CHANGE_TO_MENU } from "./actions"
 import { CHANGE_TO_TABLES } from "./actions"
 import { ADD_PRODUCT_TO_LIST } from "./actions"
 import { DELETE_PRODUCT_FROM_LIST } from "./actions"
+import { DELETE_ALL_PRODUCTS_FROM_LIST } from "./actions"
 import { Action, InitialState, Product } from "./interfaces"
 import { products } from "./products"
 
@@ -11,6 +12,8 @@ const initialState : InitialState = {
     productList : [],
     cart: 'close'
 }
+
+
 
 const reducer = (state = initialState, action : Action ) => {
     switch (action.type) {
@@ -54,6 +57,10 @@ const reducer = (state = initialState, action : Action ) => {
             // Hay que sacar una copia de productList para poder modificarla
             let updatedProductList = state.productList.filter( product => product.product !== action.payload )
             return {... state, productList: updatedProductList}
+
+        case DELETE_ALL_PRODUCTS_FROM_LIST:
+            let clearProductList: Array<Product> = []
+            return {...state, productList : clearProductList}
 
         default:
             return state

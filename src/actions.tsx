@@ -31,3 +31,11 @@ export const deleteProductFromList = (product : string) => {
         payload: product
     }
 }
+
+export const DELETE_ALL_PRODUCTS_FROM_LIST = "DELETE_ALL_PRODUCT_FROM_LIST"
+
+export const deleteAllProductsFromList = () => {
+    return {
+        type : DELETE_ALL_PRODUCTS_FROM_LIST
+    }
+}
