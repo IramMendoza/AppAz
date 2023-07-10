@@ -10,7 +10,9 @@ import { products } from "./products"
 const initialState : InitialState = {
     menuTables : 'menu',
     productList : [],
-    cart: 'close'
+    cart: 'close',
+    listPriceAndIcons: [],
+    priceCart: 0
 }
 
 
@@ -40,12 +42,14 @@ const reducer = (state = initialState, action : Action ) => {
             // Crear un nuevo array con el producto actualizado y los demás iguales
             let updatedProductList = state.productList.map( (product) => product.product === productCopy?.product ? updatedProduct : product )
             // Devolver el nuevo estado con el array actualizado
-            return { ...state, productList: updatedProductList }
+            return { ...state, productList: updatedProductList, 
+                    listPriceAndIcons: [... state.listPriceAndIcons, productToAdd] }
         }
         // Si el producto no está en la lista y se encontró
         else if (!isInProductList && productToAdd) {
             // Devolver el nuevo estado con el producto agregado al array
-            return { ...state, productList: [...state.productList, productCopy] }
+            return { ...state, productList: [...state.productList, productCopy],
+                    listPriceAndIcons: [... state.listPriceAndIcons, productToAdd] }
         }
         // Si no se encontró el producto
         else {
@@ -56,11 +60,14 @@ const reducer = (state = initialState, action : Action ) => {
         case DELETE_PRODUCT_FROM_LIST:
             // Hay que sacar una copia de productList para poder modificarla
             let updatedProductList = state.productList.filter( product => product.product !== action.payload )
-            return {... state, productList: updatedProductList}
+            let updatedListPriceAndIcons = state.listPriceAndIcons.filter ( product => product.product !== action.payload )
+            return {... state, productList: updatedProductList,
+                    listPriceAndIcons : updatedListPriceAndIcons }
 
         case DELETE_ALL_PRODUCTS_FROM_LIST:
             let clearProductList: Array<Product> = []
-            return {...state, productList : clearProductList}
+            return {...state, productList : clearProductList,
+                    listPriceAndIcons : clearProductList }
 
         default:
             return state

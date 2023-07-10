@@ -22,8 +22,9 @@ const ProductOnList = ({product, price, amount, id} : ProductOnList) => {
     <motion.div
     className=" flex justify-around bg-slate-200 rounded-3xl h-[2rem] p-1 px-2 mt-2 mb-1 w-[95%] shadow-2xl" 
     key={id}
-    initial={{ x : -500 }}
+    initial={{ x : -300 }}
     animate={{ x : 0 }}
+    transition={{ duration : 0.1 }}
     >
         <p className=" w-[60%] text-sm font-medium">{product}</p>
 

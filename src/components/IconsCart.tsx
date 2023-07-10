@@ -9,9 +9,9 @@ interface Props {
     handleCart: () => void
 }
 
-const IconsCart = ({ handleCart} : Props) => {
+const IconsCart = ({ handleCart } : Props) => {
 
-    const productList = useSelector<InitialState, Product[]>(state => state.productList)
+    const productList = useSelector<InitialState, Product[]>(state => state.listPriceAndIcons)
 
     return (
     <div 

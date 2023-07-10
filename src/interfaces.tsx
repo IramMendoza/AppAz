@@ -13,6 +13,8 @@ export interface InitialState {
   menuTables : string
   productList : Product[]
   cart: string
+  listPriceAndIcons: Product[]
+  priceCart: number
 }
 
 export interface ProductCardProps {
