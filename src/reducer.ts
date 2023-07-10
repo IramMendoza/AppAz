@@ -42,14 +42,22 @@ const reducer = (state = initialState, action : Action ) => {
             // Crear un nuevo array con el producto actualizado y los demás iguales
             let updatedProductList = state.productList.map( (product) => product.product === productCopy?.product ? updatedProduct : product )
             // Devolver el nuevo estado con el array actualizado
+            // ESTA PARTE ES PARA SACAR EL TOTAL DEL PRECIO
+            let updatedListPriceAndIcons = [...state.listPriceAndIcons, productToAdd]
+            let totalPrice = updatedListPriceAndIcons.reduce((total, product) => total + product.price, 0)
+
             return { ...state, productList: updatedProductList, 
-                    listPriceAndIcons: [... state.listPriceAndIcons, productToAdd] }
+                    listPriceAndIcons: [... state.listPriceAndIcons, productToAdd],
+                    priceCart : totalPrice }
         }
         // Si el producto no está en la lista y se encontró
         else if (!isInProductList && productToAdd) {
             // Devolver el nuevo estado con el producto agregado al array
+            let updatedListPriceAndIcons = [...state.listPriceAndIcons, productToAdd]
+            let totalPrice = updatedListPriceAndIcons.reduce((total, product) => total + product.price, 0)
             return { ...state, productList: [...state.productList, productCopy],
-                    listPriceAndIcons: [... state.listPriceAndIcons, productToAdd] }
+                    listPriceAndIcons: [... state.listPriceAndIcons, productToAdd],
+                    priceCart : totalPrice}
         }
         // Si no se encontró el producto
         else {
@@ -61,13 +69,16 @@ const reducer = (state = initialState, action : Action ) => {
             // Hay que sacar una copia de productList para poder modificarla
             let updatedProductList = state.productList.filter( product => product.product !== action.payload )
             let updatedListPriceAndIcons = state.listPriceAndIcons.filter ( product => product.product !== action.payload )
+            let totalPrice = updatedListPriceAndIcons.reduce((total, product) => total + product.price, 0)
             return {... state, productList: updatedProductList,
-                    listPriceAndIcons : updatedListPriceAndIcons }
+                    listPriceAndIcons : updatedListPriceAndIcons,
+                    priceCart : totalPrice }
 
         case DELETE_ALL_PRODUCTS_FROM_LIST:
             let clearProductList: Array<Product> = []
             return {...state, productList : clearProductList,
-                    listPriceAndIcons : clearProductList }
+                    listPriceAndIcons : clearProductList,
+                    priceCart: 0 }
 
         default:
             return state
