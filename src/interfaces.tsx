@@ -1,4 +1,3 @@
-
 export interface Action {
   type : string
   payload? : any 
@@ -9,12 +8,23 @@ export interface ProductBasic {
   price : number
 }
 
+export interface Table {
+  productsOnOrder: Product[]
+  client: string
+  tableNumber: number
+}
+
+export interface Tables {
+  tables: Table[]
+}
+
 export interface InitialState {
   menuTables : string
   productList : Product[]
   cart: string
   listPriceAndIcons: Product[]
   priceCart: number
+  tables: Table[]
 }
 
 export interface ProductCardProps {

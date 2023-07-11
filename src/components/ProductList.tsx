@@ -11,8 +11,9 @@ const ProductList = () => {
             <div className=" bg-white w-[90%] rounded-3xl">
                 {
                     productList.map( (product) => {
+                        const uniqueKey = Math.random()
                         return (
-                            <div className=" flex justify-center w-full">
+                            <div key={uniqueKey} className=" flex justify-center w-full">
                                     <ProductOnList
                                     product={product.product}
                                     price={product.price}

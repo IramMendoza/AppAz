@@ -23,16 +23,18 @@ const IconsCart = ({ handleCart } : Props) => {
                     <div className=" flex justify-center overflow-x-auto w-[85%]">
                         {
                             productList.map( (product => {
+                                const uniqueKey = `${product.id}-${Math.random()}`
                                 return (
                                     <motion.div 
                                     className=" w-[32px] m-2 my-3"
+                                    key={uniqueKey}
                                     initial={{ scale : 1 }}
                                     animate={{ scale : [1,1.5,1] }}
                                     transition={{ duration : 0.2 }}
                                     >
-                                        {product.type === 'burger' ? <img src={Burger} /> : <div />}
-                                        {product.type === 'beer' ? <img src={Beer} /> : <div />}
-                                        {product.type === 'complement' ? <img src={Fries} /> : <div />}
+                                        {product.type === 'burger' ? <img key={uniqueKey} src={Burger} /> : <div />}
+                                        {product.type === 'beer' ? <img key={uniqueKey} src={Beer} /> : <div />}
+                                        {product.type === 'complement' ? <img key={uniqueKey} src={Fries} /> : <div />}
                                     </motion.div>
                                 )
                             }

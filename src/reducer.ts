@@ -12,12 +12,13 @@ const initialState : InitialState = {
     productList : [],
     cart: 'close',
     listPriceAndIcons: [],
-    priceCart: 0
+    priceCart: 0,
+    tables: []
 }
 
 
 
-const reducer = (state = initialState, action : Action ) => {
+const reducer = ( state = initialState, action : Action ) => {
     switch (action.type) {
 
         case CHANGE_TO_MENU :

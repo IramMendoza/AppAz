@@ -15,7 +15,7 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
   
     const numbers = []
     for (let i = 1; i <= 10; i++) {
-        numbers.push(<option value={i}>{i}</option>)
+        numbers.push(<option key={i} value={i}>{i}</option>)
     }
     // Funciona para manejar la cantidad de productos en cada Card
 

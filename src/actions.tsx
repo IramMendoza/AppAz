@@ -28,7 +28,7 @@ export const DELETE_PRODUCT_FROM_LIST = "DELETE_PRODUCT_FROM_LIST"
 export const deleteProductFromList = (product : string) => {
     return {
         type: DELETE_PRODUCT_FROM_LIST,
-        payload: product
+        payload : product
     }
 }
 
@@ -37,5 +37,14 @@ export const DELETE_ALL_PRODUCTS_FROM_LIST = "DELETE_ALL_PRODUCT_FROM_LIST"
 export const deleteAllProductsFromList = () => {
     return {
         type : DELETE_ALL_PRODUCTS_FROM_LIST
+    }
+}
+
+export const ADD_ORDER_TO_TABLE = "ADD_ORDER_TO_TABLE"
+
+export const addOrderToTable = (order : object) => {
+    return {
+        type : ADD_ORDER_TO_TABLE,
+        payload : order
     }
 }
