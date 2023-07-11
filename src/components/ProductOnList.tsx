@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 import { deleteProductFromList } from '../actions'
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import Cross from '../assets/cross.png'
 
 interface ProductOnList {
@@ -10,20 +11,35 @@ interface ProductOnList {
     id: number
 }
 
-const ProductOnList = ({product, price, amount, id} : ProductOnList) => {
+const ProductOnList = ({product, price, amount} : ProductOnList) => {
 
+  const animate = useAnimation()
   const dispatch = useDispatch()
+  const variants = { 
+    render : { x : 0 }
+  }
+
+  useEffect( () => {
+    animate.start('render')
+    }
+    ,[]
+  )
 
   function handleDelete () {
     dispatch(deleteProductFromList ( product ) )
   }
 
+      // IMPORTANTE:
+    // NO HAY QUE DARLES KEY A LOS ELEMENTOS QUE SE VAN RENDERIZANDO
+    // YA QUE ESTO HACE QUE SE RENDERICEN CON CADA CAMBIO EN EL CART
+
   return (
     <motion.div
     className=" flex justify-around bg-slate-200 rounded-3xl h-[2rem] p-1 px-2 mt-2 mb-1 w-[95%] shadow-2xl" 
-    key={id}
+    
     initial={{ x : -300 }}
-    animate={{ x : 0 }}
+    animate={animate}
+    variants={variants}
     transition={{ duration : 0.1 }}
     >
         <p className=" w-[60%] text-sm font-medium">{product}</p>
