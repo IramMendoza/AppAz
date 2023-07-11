@@ -8,7 +8,7 @@ const ProductList = () => {
 
     return (
         <div className=" flex justify-center w-full">
-            <div className=" bg-white w-[90%] rounded-3xl">
+            <div className=" bg-white w-[90%] py-4 rounded-3xl">
                 {
                     productList.map( (product) => {
                         

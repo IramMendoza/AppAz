@@ -7,13 +7,13 @@ interface Props {
 
 const ConteinerProductCard= ({ children, title } : Props ) => {
   return (
-    <div className=" pt-3">
+    <div className="">
         <h1 
-        className=" text-white text-4xl font-semibold text-center">
+        className=" text-slate-800 text-4xl font-semibold text-center">
         {title}
         </h1>
         <div className=" flex justify-center w-full">
-            <div className=" w-full flex overflow-x-auto pt-5 pb-[3rem]">
+            <div className=" w-full flex overflow-x-auto pt-5 pb-[4rem]">
                 {children}
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { deleteProductFromList } from '../actions'
-import { motion, useAnimation } from 'framer-motion'
+import { motion, useAnimation, AnimatePresence } from 'framer-motion'
 import Cross from '../assets/cross.png'
 
 interface ProductOnList {
@@ -34,32 +34,34 @@ const ProductOnList = ({product, price, amount} : ProductOnList) => {
     // YA QUE ESTO HACE QUE SE RENDERICEN CON CADA CAMBIO EN EL CART
 
   return (
-    <motion.div
-    className=" flex justify-around bg-slate-200 rounded-3xl h-[2rem] p-1 px-2 mt-2 mb-1 w-[95%] shadow-2xl" 
-    
-    initial={{ x : -300 }}
-    animate={animate}
-    variants={variants}
-    transition={{ duration : 0.1 }}
-    >
-        <p className=" w-[60%] text-sm font-medium">{product}</p>
+    <AnimatePresence>
+      <motion.div
+      className=" flex justify-around bg-slate-200 rounded-2xl h-[23px] w-[90%] m-1 shadow-2xl" 
+      initial={{ x : -300 }}
+      animate={animate}
+      variants={variants}
+      transition={{ duration : 0.1 }}
+      >
+          <p className=" w-[60%] text-sm font-medium ml-3">{product}</p>
 
-        <p className=' text-slate-700'>{price}$</p>
+          <p className=' text-slate-700 text-sm'>{price}$</p>
 
-        <motion.p className=' text-slate-700 font-semibold'
-          initial={{ scale : 1 }}
-          animate={{ scale : [2,1] }}
-          transition={{ duration : 1 }}>
-          x{amount}
-        </motion.p>
+          <motion.p 
+            className=' text-slate-700 font-semibold text-sm'
+            initial={{ scale : 1 }}
+            animate={{ scale : [2,1] }}
+            transition={{ duration : 1 }}>
+            x{amount}
+          </motion.p>
 
-        <div className=' w-[25px]'>
-          <img
-          onClick={handleDelete}
-          src={Cross}/>
-        </div>
+          <div className=' w-[23px] flex justify-end ml-2'>
+            <img
+            onClick={handleDelete}
+            src={Cross}/>
+          </div>
 
-    </motion.div>
+      </motion.div>
+    </AnimatePresence>
   )
 }
 

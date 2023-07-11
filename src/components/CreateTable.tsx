@@ -25,9 +25,10 @@ const CreateTable = () => {
                     addToTable === true ? <div/> : 
 
                     <div className="flex justify-center pb-1 pt-1">
-                        <button className="bg-gradient-to-r from-cyan-800 to-sky-700 text-slate-100 p-1 pl-2 pr-2 rounded-3xl"
-                            onClick={handleAddToTable}>
-                            Agregar a Mesa
+                        <button 
+                        className="bg-gradient-to-r from-cyan-800 to-sky-700 text-slate-100 p-1 pl-2 pr-2 rounded-3xl"
+                        onClick={handleAddToTable}>
+                        Agregar a Mesa
                         </button>
                     </div>
                 }
@@ -46,14 +47,15 @@ const CreateTable = () => {
 
                             <div className=" w-full flex justify-center pb-2 ">
                                 <input
-                                    className=" text-center text-slate-700 bg-gradient-to-r from-slate-300 to-slate-200 rounded-2xl shadow-2xl"
-                                    value={value}
-                                    onChange={handleChange} />
+                                className=" text-center text-slate-700 bg-gradient-to-r from-slate-300 to-slate-200 rounded-2xl shadow-2xl"
+                                value={value}
+                                onChange={handleChange} />
                             </div>
 
                             <div className=" w-full flex justify-center pb-1">
-                                <button className=" bg-gradient-to-r from-cyan-800 to-sky-700 text-slate-100 p-1 pl-2 pr-2 mb-1 rounded-3xl">
-                                    Agregar Orden
+                                <button 
+                                className=" bg-gradient-to-r from-cyan-800 to-sky-700 text-slate-100 p-1 pl-2 pr-2 mb-1 rounded-3xl">
+                                Agregar Orden
                                 </button>
                             </div>
 

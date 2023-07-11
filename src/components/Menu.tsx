@@ -13,7 +13,7 @@ import micheladaCubana from '../assets/michelada.jpeg'
 const Menu : React.FC = () => {
   //No encontre una mejor manera de separar mas que dejar ese div
   return (
-    <div className=" bg-rose-600 w-full h-full">
+    <div className=" bg-slate-200 w-full h-full">
       <div className=" p-8"/> 
       
       <ConteinerProductCard title="Hamburguesas">
