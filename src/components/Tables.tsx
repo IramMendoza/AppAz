@@ -6,7 +6,7 @@ const Tables = () => {
   const tables = useSelector<InitialState, Table[]>(state => state.tables)
 
   return (
-    <div className=" bg-sky-900 w-full h-full">
+    <div className=" bg-sky-900 w-screen h-screen">
       <div className=" pb-[3rem]"/>
       <div>
         { tables.length === 0 ? 
@@ -22,6 +22,7 @@ const Tables = () => {
         <div>
           
         </div>
+
         }
       </div>
     </div>
