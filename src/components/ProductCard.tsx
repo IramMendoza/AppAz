@@ -12,12 +12,6 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
         console.log(typeof(product), product)
     }
     // Dispatch para agregar el producto a productList en el reducer
-  
-    const numbers = []
-    for (let i = 1; i <= 10; i++) {
-        numbers.push(<option key={i} value={i}>{i}</option>)
-    }
-    // Funciona para manejar la cantidad de productos en cada Card
 
     return (
         <div
@@ -43,18 +37,10 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
             </p>
 
             <div 
-            className='w-full flex justify-center'>
-                <label 
-                className='mr-3 text-slate-700'>Cantidad</label>
-                <select
-                className=''
-                name="amount">{numbers}</select>
-            </div>
-
-            <div 
             className='flex justify-center'>
                 <button
-                className=' bg-gradient-to-r from-cyan-600 to-lime-600 text-white rounded-2xl pr-2 pl-2 m-1 pb-1 mb-2' 
+                className=' bg-gradient-to-r from-teal-600 to-emerald-500 text-white py-1 px-2 rounded-2xl m-2'
+                id='styleButton' 
                 onClick={handleClickAdd}>Agregar</button>
             </div>
 

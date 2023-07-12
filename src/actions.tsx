@@ -48,3 +48,11 @@ export const addOrderToTable = (order : object) => {
         payload : order
     }
 }
+
+export const CHANGE_CART = "CHANGE_CART"
+
+export const changeCart = () => {
+    return {
+        type: CHANGE_CART
+    }
+}

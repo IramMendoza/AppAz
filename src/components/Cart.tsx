@@ -1,7 +1,7 @@
 import { motion, useAnimation } from "framer-motion"
-import { useState } from "react"
-import { useDispatch } from "react-redux"
-import { deleteAllProductsFromList } from "../actions"
+import { useDispatch, useSelector } from "react-redux"
+import { deleteAllProductsFromList, changeCart } from "../actions"
+import { InitialState } from "../interfaces"
 import ProductList from "./ProductList"
 import IconsCart from "./IconsCart"
 import PriceOrder from "./PriceOrder"
@@ -10,7 +10,7 @@ import Pay from "./Pay"
 
 const Cart = () => {
 
-  const [cartOn, setCartOn] = useState(false)
+  const cartState = useSelector<InitialState, String>( state => state.cart )
   const animate = useAnimation()
   const dispatch = useDispatch()
   const variants = {
@@ -20,9 +20,9 @@ const Cart = () => {
 
 
   function handleCart () {
-    cartOn === true ? animate.start('close') : animate.start('open')
-    cartOn === false ? setCartOn(true) : setCartOn(false)
-    console.log(cartOn)
+    cartState === 'close' ? animate.start('close') : animate.start('open')
+    dispatch(changeCart())
+    console.log(cartState)
   }
 
   function handleDeleteAll () {
@@ -40,7 +40,7 @@ const Cart = () => {
     >
       <IconsCart handleCart={ handleCart }/>
 
-        { cartOn === false ? <div/> : 
+        { cartState === 'close' ? <div/> : 
 
           <div>
 

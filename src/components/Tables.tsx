@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { InitialState, Table } from "../interfaces"
+import TableList from "./TableList"
 
 const Tables = () => {
 
@@ -19,8 +20,8 @@ const Tables = () => {
         
         : 
         
-        <div>
-          
+        <div className="">
+          <TableList/>
         </div>
 
         }

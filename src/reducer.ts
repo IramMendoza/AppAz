@@ -1,8 +1,9 @@
-import { CHANGE_TO_MENU } from "./actions"
+import { CHANGE_CART, CHANGE_TO_MENU } from "./actions"
 import { CHANGE_TO_TABLES } from "./actions"
 import { ADD_PRODUCT_TO_LIST } from "./actions"
 import { DELETE_PRODUCT_FROM_LIST } from "./actions"
 import { DELETE_ALL_PRODUCTS_FROM_LIST } from "./actions"
+import { ADD_ORDER_TO_TABLE } from "./actions"
 import { Action, InitialState, Product } from "./interfaces"
 import { products } from "./products"
 
@@ -79,7 +80,24 @@ const reducer = ( state = initialState, action : Action ) => {
             let clearProductList: Array<Product> = []
             return {...state, productList : clearProductList,
                     listPriceAndIcons : clearProductList,
-                    priceCart: 0 }
+                    priceCart : 0 }
+        
+        case ADD_ORDER_TO_TABLE:
+            let order = action.payload
+            let emptyProductList : Array<Product> = []
+            return { ...state, tables: [...state.tables, order],
+                    productList : emptyProductList,
+                    listPriceAndIcons : emptyProductList,
+                    priceCart : 0,
+                    }
+
+        case CHANGE_CART:
+            if (state.cart === 'open'){
+                return { ...state, cart : 'close' }
+            }
+            else {
+                return { ...state, cart : 'open' }
+            }
 
         default:
             return state
