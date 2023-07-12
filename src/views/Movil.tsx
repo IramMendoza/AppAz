@@ -14,7 +14,7 @@ const Movil = () => {
   //LO IMPORTANTE ES QUE USA LA INTERFACE APPSTATE PARA SABER QUE VIENE EN LA VARIABLE STATE
 
   return (
-    <div className=" bg-slate-600 w-screen h-screen">
+    <div>
       <Navbar/>
       <div>
         {menuTables === "tables" ? <Tables /> : <Menu />}

@@ -53,6 +53,14 @@ export const CHANGE_CART = "CHANGE_CART"
 
 export const changeCart = () => {
     return {
-        type: CHANGE_CART
+        type : CHANGE_CART
+    }
+}
+
+export const CIRCLE_ADDED_TABLE = "CIRCLE_ADDED_TABLE"
+
+export const circleAddedTable = () => {
+    return {
+        type : CIRCLE_ADDED_TABLE
     }
 }

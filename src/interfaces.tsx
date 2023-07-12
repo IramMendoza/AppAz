@@ -25,6 +25,7 @@ export interface InitialState {
   listPriceAndIcons: Product[]
   priceCart: number
   tables: Table[]
+  circleAdd: boolean
 }
 
 export interface ProductCardProps {

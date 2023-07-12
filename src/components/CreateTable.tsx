@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { InitialState, Product, Table } from "../interfaces"
-import { addOrderToTable, changeCart } from "../actions"
+import { addOrderToTable, changeCart, circleAddedTable } from "../actions"
 
 const CreateTable = () => {
 
@@ -27,6 +27,7 @@ const CreateTable = () => {
         }
         dispatch(addOrderToTable( order ))
         dispatch(changeCart())
+        dispatch(circleAddedTable())
     }
 
     return (

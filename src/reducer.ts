@@ -1,4 +1,5 @@
 import { CHANGE_CART, CHANGE_TO_MENU } from "./actions"
+import { CIRCLE_ADDED_TABLE } from "./actions"
 import { CHANGE_TO_TABLES } from "./actions"
 import { ADD_PRODUCT_TO_LIST } from "./actions"
 import { DELETE_PRODUCT_FROM_LIST } from "./actions"
@@ -14,9 +15,9 @@ const initialState : InitialState = {
     cart: 'close',
     listPriceAndIcons: [],
     priceCart: 0,
-    tables: []
+    tables: [],
+    circleAdd: false
 }
-
 
 
 const reducer = ( state = initialState, action : Action ) => {
@@ -95,9 +96,15 @@ const reducer = ( state = initialState, action : Action ) => {
             if (state.cart === 'open'){
                 return { ...state, cart : 'close' }
             }
-            else {
+            else 
                 return { ...state, cart : 'open' }
+            
+        case CIRCLE_ADDED_TABLE:
+            if ( state.circleAdd === false){
+                return { ...state, circleAdd : true }
             }
+            else
+                return { ...state, circleAdd: false }
 
         default:
             return state

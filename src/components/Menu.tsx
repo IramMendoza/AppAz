@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux"
+import { InitialState } from "../interfaces"
 import React from "react"
 import ConteinerProductCard from "./ConteinerProductCard"
 import ProductCard from "./ProductCard"
@@ -11,6 +13,19 @@ import michelada from '../assets/micheladaSencilla.jpeg'
 import micheladaCubana from '../assets/michelada.jpeg'
 
 const Menu : React.FC = () => {
+
+  const circleState = useSelector<InitialState, boolean>( state => state.circleAdd )
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  // La funcion mira con circleState para que cuando este renderice, nos lleve
+  // hasta arriba en la pagina y se note si fue o no agregado correctamente
+  // la orden a la mesa
+  if ( circleState === true ){
+    scrollToTop()
+  }
+
   //No encontre una mejor manera de separar mas que dejar ese div
   return (
     <div className=" bg-slate-200 w-full h-full">

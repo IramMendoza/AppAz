@@ -1,21 +1,38 @@
-import { motion, useAnimation } from "framer-motion"
+import { motion } from "framer-motion"
+import { useSelector, useDispatch } from "react-redux"
+import { InitialState } from "../interfaces"
+import { circleAddedTable } from "../actions"
+import circleAddImg from '../assets/check.png'
 
 const AddCircle = () => {
 
-    const animate = useAnimation()
+  const dispatch = useDispatch()
+  const circleState = useSelector<InitialState, boolean>( state => state.circleAdd)
 
-    const variants = {
-        animate: { y : [500,-500], duration : 1.5 }
-    }
+  // Para cambiar el estado en automatico en cuanto desaparezca el circulo que avisa
+  // cuando se añade correctamente la mesa al estado.
+  if ( circleState === true ){
+    setTimeout ( () => {
+      dispatch(circleAddedTable())
+      }, 1010
+    )
+  }
 
   return (
-    <motion.div 
-    className=' bg-gradient-to-r from-cyan-800 to-emerald-700 w-[5rem] h-[5rem] rounded-full relative'
-    variants={variants}
-    animate={animate}
-    initial={{ y : -700 }}>
-      x
-    </motion.div>
+    <div>
+      { 
+        circleState === false ? <div/> : 
+          
+          <motion.img
+            className=' w-[7rem] absolute'
+            animate={{ y : [-200, 250, 250, 250, 250, 250, 250, 250, 250, -200] }}
+            initial={{ y : 0, x : -50 }}
+            transition={{ duration : 1 }}
+            src={circleAddImg}
+          />
+
+      }
+    </div>
   )
 }
 
