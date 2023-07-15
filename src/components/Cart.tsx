@@ -8,6 +8,9 @@ import PriceOrder from "./PriceOrder"
 import CreateTable from "./CreateTable"
 import Pay from "./Pay"
 
+// Puede haber un problema con este componente en el futuro, por algun motivo cambia la posicion sin
+// Razon aparente. Parece estar relaciondo con el componente Tables
+
 const Cart = () => {
 
   const cartState = useSelector<InitialState, String>( state => state.cart )
