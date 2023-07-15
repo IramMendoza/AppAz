@@ -3,36 +3,38 @@ import { InitialState, Table } from "../interfaces"
 import TableList from "./TableList"
 
 const Tables = () => {
-  
   const tables = useSelector<InitialState, Table[]>(state => state.tables)
   const circleState = useSelector<InitialState, boolean>( state => state.circleAdd )
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
-  // La funcion mira con circleState para que cuando este renderice, nos lleve
+  // El condicional trae el estado de circleState para que cuando este renderice, nos lleve
   // hasta arriba en la pagina y se note si fue o no agregado correctamente
   // la orden a la mesa
   if ( circleState === true ){
     scrollToTop()
   }
 
+  // El condicional nos sirve por si el numero de mesas registradas es cero,
+  // Renderice solamente que no hay mesas aun
   return (
-    <div className=" bg-sky-900 w-screen h-screen">
-      <div className=" pb-[3rem]"/>
+    <div className=" bg-slate-300 w-full h-full">
+      <div className=" pb-[4rem]"/>
+
       <div>
         { tables.length === 0 ? 
 
-        <div className=" w-full h-full flex justify-center bg-sky-900">
+        <div className=" w-full h-screen flex justify-center bg-slate-300">
           <div className=" py-[15rem]">
-            <p className=" text-center text-white text-4xl font-bold">NO HAY MESAS AUN ;D</p>
+            <p className=" text-center text-slate-700 text-base font-bold">No hay mesas en servicio</p>
           </div>
         </div> 
         
         : 
         
-        <div className="">
-          <TableList/>
+        <div className=" w-full flex justify-center">
+            <TableList/>
         </div>
 
         }

@@ -7,21 +7,21 @@ const TableList = () => {
     const tables = useSelector<InitialState, Table[]>(state => state.tables)
 
     return (
-        <div>
-        {
-            tables.map ( (table) => {
-                return (
-                    <div>
-                        <TableCard
-                        tableNumber={table.tableNumber}
-                        client={table.client}
-                        />
-                    </div>
-                    )
-                }
-            )
-        }
-        </div>
+            <div className=" w-full flex sm:flex-wrap xsm:flex-col overflow-x-auto">
+            {
+                tables.map ( (table) => {
+                    return (
+                        <div className=" flex justify-center">
+                            <TableCard
+                            tableNumber={table.tableNumber}
+                            client={table.client}
+                            />
+                        </div>
+                        )
+                    }
+                )
+            }
+            </div>
     )
 }
 
