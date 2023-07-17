@@ -26,7 +26,7 @@ const Cart = () => {
   function handleCart () {
     cartState === 'close' ? animate.start('close') : animate.start('open')
     dispatch(changeCart())
-    console.log(cartState)
+    console.log(cartState, )
   }
 
   function handleDeleteAll () {

@@ -4,7 +4,8 @@ import { InitialState, Product, Table } from "../interfaces"
 import { addOrderToTable, changeCart, circleAddedTable } from "../actions"
 
 const CreateTable = () => {
-
+    
+    const listPriceAndIcons = useSelector<InitialState, Product[]>(state => state.listPriceAndIcons)
     const tableNumber = useSelector <InitialState, Table[]>( state => state.tables)
     const productList = useSelector <InitialState, Product[]>( state => state.productList)
     const dispatch = useDispatch()
@@ -23,7 +24,8 @@ const CreateTable = () => {
     function handleAddOrderToTable () {
         if (value.length >= 3 && productList.length >= 1){
             let order = {
-                productsOnOrder : productList,
+                productList : productList,
+                listPriceAndIcons :listPriceAndIcons,
                 tableNumber : tableNumber.length +1,
                 client : value,
             }

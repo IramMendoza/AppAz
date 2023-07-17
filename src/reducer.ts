@@ -19,7 +19,8 @@ const initialState : InitialState = {
     tables : [],
     circleAdd : false,
     currentOrder : {
-        productsOnOrder : [],
+        productList : [],
+        listPriceAndIcons : [],
         client : '',
         tableNumber : 0
     }
@@ -116,10 +117,11 @@ const reducer = ( state = initialState, action : Action ) => {
         case SEE_CURRENT_ORDER:
             let currentOrder = state.tables.find( (table) => table.client === action.payload)
             console.log(currentOrder)
-            console.log(currentOrder?.productsOnOrder)
+            console.log(currentOrder?.productList)
             return {... state, 
-                    productList : currentOrder?.productsOnOrder || [],
-                    currentOrder : currentOrder }
+                    productList : currentOrder?.productList || [],
+                    currentOrder : currentOrder,
+                    listPriceAndIcons : currentOrder?.listPriceAndIcons }
 
         default:
             return state

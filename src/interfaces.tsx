@@ -9,9 +9,10 @@ export interface ProductBasic {
 }
 
 export interface Table {
-  productsOnOrder: Product[]
-  client: string
-  tableNumber: number
+  listPriceAndIcons : Product[]
+  productList : Product[]
+  client : string
+  tableNumber : number
 }
 
 export interface Tables {
