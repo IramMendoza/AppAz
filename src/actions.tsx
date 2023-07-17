@@ -73,3 +73,12 @@ export const seeCurrentOrder = (client : string) => {
         payload : client
     }
 }
+
+export const UPDATE_TABLE = "UPDATE_TABLE"
+
+export const updateTable = (order : object) => {
+    return {
+        type : UPDATE_TABLE,
+        payload : order
+    }
+}

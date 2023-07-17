@@ -6,7 +6,8 @@ import { DELETE_PRODUCT_FROM_LIST } from "./actions"
 import { DELETE_ALL_PRODUCTS_FROM_LIST } from "./actions"
 import { ADD_ORDER_TO_TABLE } from "./actions"
 import { SEE_CURRENT_ORDER } from "./actions"
-import { Action, InitialState, Product } from "./interfaces"
+import { UPDATE_TABLE } from "./actions"
+import { Action, InitialState, Product, Table } from "./interfaces"
 import { products } from "./products"
 
 
@@ -88,10 +89,11 @@ const reducer = ( state = initialState, action : Action ) => {
             let clearProductList: Array<Product> = []
             return {...state, productList : clearProductList,
                     listPriceAndIcons : clearProductList,
-                    priceCart : 0 }
+                    priceCart : 0,
+                    currentOrder : initialState.currentOrder }
         
         case ADD_ORDER_TO_TABLE:
-            let order = action.payload
+            let order : Table = action.payload
             let emptyProductList : Array<Product> = []
             console.log(order)
             return { ...state, tables: [...state.tables, order],
@@ -116,12 +118,29 @@ const reducer = ( state = initialState, action : Action ) => {
 
         case SEE_CURRENT_ORDER:
             let currentOrder = state.tables.find( (table) => table.client === action.payload)
-            console.log(currentOrder)
-            console.log(currentOrder?.productList)
+            let totalPriceUpdated = currentOrder?.listPriceAndIcons.reduce((total, product) => total + product.price, 0)
             return {... state, 
                     productList : currentOrder?.productList || [],
                     currentOrder : currentOrder,
-                    listPriceAndIcons : currentOrder?.listPriceAndIcons }
+                    listPriceAndIcons : currentOrder?.listPriceAndIcons,
+                    priceCart : totalPriceUpdated }
+        
+        case UPDATE_TABLE:
+            const updatedOrder : Table = action.payload
+            console.log(updatedOrder)
+            const filteredList = state.tables.filter(table => table.client !== updatedOrder.client)
+            filteredList.push(updatedOrder)
+            console.log(filteredList, "esta es la filtered list")
+            return {
+                ...state,
+                tables : filteredList,
+                currentOrder : {},
+                productList: [],
+                listPriceAndIcons : [],
+                circleAdd : true,
+                priceCart : 0,
+                cart : 'close',
+            }
 
         default:
             return state

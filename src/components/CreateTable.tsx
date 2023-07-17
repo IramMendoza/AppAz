@@ -47,7 +47,7 @@ const CreateTable = () => {
 
                     <div className="flex justify-center pb-1 pt-1">
                         <button 
-                        className="bg-gradient-to-r from-cyan-700 to-sky-600 text-slate-100 p-1 pl-2 pr-2 rounded-3xl"
+                        className="bg-gradient-to-r from-cyan-600 to-sky-600 text-white p-1 pl-2 pr-2 rounded-3xl"
                         onClick={handleAddToTable}>
                         Agregar a Mesa
                         </button>
@@ -75,7 +75,7 @@ const CreateTable = () => {
 
                             <div className=" w-full flex justify-center pb-1">
                                 <button 
-                                className=" bg-gradient-to-r from-cyan-700 to-sky-600 text-slate-100 p-1 pl-2 pr-2 mb-1 rounded-3xl"
+                                className=" bg-gradient-to-r from-cyan-600 to-sky-600 text-white p-1 pl-2 pr-2 mb-1 rounded-3xl"
                                 onClick={handleAddOrderToTable}>
                                 Agregar Orden
                                 </button>

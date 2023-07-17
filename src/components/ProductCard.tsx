@@ -38,7 +38,7 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
             <div 
             className='flex justify-center'>
                 <button
-                className=' bg-gradient-to-r from-teal-600 to-emerald-500 text-white py-1 px-2 rounded-2xl m-2'
+                className=' bg-gradient-to-r from-teal-500 to-emerald-500 text-white py-1 px-2 rounded-2xl m-2'
                 id='styleButton' 
                 onClick={handleClickAdd}>Agregar</button>
             </div>

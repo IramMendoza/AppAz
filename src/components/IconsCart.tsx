@@ -11,7 +11,7 @@ interface Props {
 
 const IconsCart = ({ handleCart } : Props) => {
 
-    const productList = useSelector<InitialState, Product[]>(state => state.listPriceAndIcons)
+    const listPriceAndIcons = useSelector<InitialState, Product[]>(state => state.listPriceAndIcons)
     
     // IMPORTANTE:
     // NO HAY QUE DARLES KEY A LOS ELEMENTOS QUE SE VAN RENDERIZANDO
@@ -22,11 +22,11 @@ const IconsCart = ({ handleCart } : Props) => {
     className="w-full flex justify-center"
     onClick={handleCart}>
             {
-                productList.length === 0 ? <p className=" text-center font-medium text-lg mt-2 mb-2 p-1">Vacio</p> :
+                listPriceAndIcons.length === 0 ? <p className=" text-center font-medium text-lg mt-2 mb-2 p-1">Vacio</p> :
 
                     <div className=" flex justify-center overflow-x-auto w-[85%]">
                         {
-                            productList.map( (product => {
+                            listPriceAndIcons.map( (product => {
                                 
                                 return (
                                     <motion.div 

@@ -15,14 +15,14 @@ const ClientOrder = () => {
                 
                 :
 
-                <div>
+                <div className=" mb-2">
                     <div className=" w-full flex justify-center">
                         <p className=" text-2xl">Orden : </p>
                         <p className=" font-semibold text-2xl ml-2">{client}</p>
                     </div>
-                    <div>
-                        <p className=" text-sm text-slate-700">Mesa : </p>
-                        <p className=" text-sm text-slate-700">{tableNumber}</p>
+                    <div className=" w-full flex justify-center">
+                        <p className=" text-lg text-slate-700">Mesa : </p>
+                        <p className=" text-lg text-slate-700 font-semibold ml-1">{tableNumber}</p>
                     </div>
                 </div>
             }

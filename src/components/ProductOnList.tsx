@@ -36,7 +36,7 @@ const ProductOnList = ({product, price, amount} : ProductOnList) => {
   return (
     <AnimatePresence>
       <motion.div
-      className=" flex justify-around bg-slate-200 rounded-2xl h-[23px] w-[90%] m-1 shadow-2xl" 
+      className=" flex justify-around bg-slate-100 rounded-2xl h-[23px] w-[90%] m-1 shadow-2xl" 
       initial={{ x : -300 }}
       animate={animate}
       variants={variants}
