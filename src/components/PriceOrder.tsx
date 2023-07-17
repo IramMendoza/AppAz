@@ -10,7 +10,7 @@ const PriceOrder = () => {
             { 
                 priceOrder === 0 ? <div/> : 
                     <div className=" flex justify-center">
-                        <p className=" bg-white px-3 pb-2 rounded-b-2xl font-semibold text-2xl">
+                        <p className=" w-[95%] bg-white px-3 pb-2 rounded-b-2xl font-semibold text-center text-2xl">
                             TOTAL : ${priceOrder}
                         </p>
                     </div>

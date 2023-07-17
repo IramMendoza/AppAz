@@ -64,3 +64,12 @@ export const circleAddedTable = () => {
         type : CIRCLE_ADDED_TABLE
     }
 }
+
+export const SEE_CURRENT_ORDER = "SEE_CURRENT_ORDER"
+
+export const seeCurrentOrder = (client : string) => {
+    return {
+        type : SEE_CURRENT_ORDER,
+        payload : client
+    }
+}

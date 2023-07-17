@@ -5,6 +5,7 @@ import { ADD_PRODUCT_TO_LIST } from "./actions"
 import { DELETE_PRODUCT_FROM_LIST } from "./actions"
 import { DELETE_ALL_PRODUCTS_FROM_LIST } from "./actions"
 import { ADD_ORDER_TO_TABLE } from "./actions"
+import { SEE_CURRENT_ORDER } from "./actions"
 import { Action, InitialState, Product } from "./interfaces"
 import { products } from "./products"
 
@@ -12,11 +13,16 @@ import { products } from "./products"
 const initialState : InitialState = {
     menuTables : 'menu',
     productList : [],
-    cart: 'close',
-    listPriceAndIcons: [],
-    priceCart: 0,
-    tables: [],
-    circleAdd: false
+    cart : 'close',
+    listPriceAndIcons : [],
+    priceCart : 0,
+    tables : [],
+    circleAdd : false,
+    currentOrder : {
+        productsOnOrder : [],
+        client : '',
+        tableNumber : 0
+    }
 }
 
 
@@ -86,6 +92,7 @@ const reducer = ( state = initialState, action : Action ) => {
         case ADD_ORDER_TO_TABLE:
             let order = action.payload
             let emptyProductList : Array<Product> = []
+            console.log(order)
             return { ...state, tables: [...state.tables, order],
                     productList : emptyProductList,
                     listPriceAndIcons : emptyProductList,
@@ -105,6 +112,14 @@ const reducer = ( state = initialState, action : Action ) => {
             }
             else
                 return { ...state, circleAdd: false }
+
+        case SEE_CURRENT_ORDER:
+            let currentOrder = state.tables.find( (table) => table.client === action.payload)
+            console.log(currentOrder)
+            console.log(currentOrder?.productsOnOrder)
+            return {... state, 
+                    productList : currentOrder?.productsOnOrder || [],
+                    currentOrder : currentOrder }
 
         default:
             return state

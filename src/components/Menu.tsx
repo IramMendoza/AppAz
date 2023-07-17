@@ -3,14 +3,14 @@ import { InitialState } from "../interfaces"
 import React from "react"
 import ConteinerProductCard from "./ConteinerProductCard"
 import ProductCard from "./ProductCard"
-import chickenBurger from '../assets/burger.jpeg'
-import burger from '../assets/chickenBurger.jpeg'
-import arracheraBurger from '../assets/arracheraBurger.jpeg'
-import fries from '../assets/fries.jpg'
-import boneless from '../assets/bonelessImg.jpeg'
-import beer from '../assets/cervezaSola.jpeg'
-import michelada from '../assets/micheladaSencilla.jpeg'
-import micheladaCubana from '../assets/michelada.jpeg'
+import chickenBurger from '../assets/burgerMini.jpeg'
+import burger from '../assets/beefBurgerMini.jpeg'
+import arracheraBurger from '../assets/arracheraBurgerMini.jpeg'
+import fries from '../assets/friesMini.jpeg'
+import boneless from '../assets/bonelessMini.jpeg'
+import beer from '../assets/cervezaSolaMini.jpeg'
+import michelada from '../assets/micheladaSencillaMini.jpeg'
+import micheladaCubana from '../assets/micheladaMini.jpeg'
 
 const Menu : React.FC = () => {
 

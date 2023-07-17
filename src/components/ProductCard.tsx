@@ -9,7 +9,6 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
 
     function handleClickAdd () {
         dispatch( addProductToList( product ) )
-        console.log(typeof(product), product)
     }
     // Dispatch para agregar el producto a productList en el reducer
 

@@ -9,6 +9,8 @@ const Tables = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
+  scrollToTop()
+
   // El condicional trae el estado de circleState para que cuando este renderice, nos lleve
   // hasta arriba en la pagina y se note si fue o no agregado correctamente
   // la orden a la mesa
@@ -18,6 +20,8 @@ const Tables = () => {
 
   // El condicional nos sirve por si el numero de mesas registradas es cero,
   // Renderice solamente que no hay mesas aun
+
+  // Debajo de tableList esta un div vacio que sirve como relleno para la pagina
   return (
     <div className=" bg-slate-300 w-full h-full">
       <div className=" pb-[4rem]"/>
@@ -33,8 +37,9 @@ const Tables = () => {
         
         : 
         
-        <div className=" w-full flex justify-center">
+        <div className=" w-full">
             <TableList/>
+            <div className=" w-full md:h-screen h-[20rem] bg-slate-300"/>
         </div>
 
         }

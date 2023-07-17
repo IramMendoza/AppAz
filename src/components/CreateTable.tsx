@@ -19,15 +19,21 @@ const CreateTable = () => {
         addToTable === false ? setAddToTable(true) : setAddToTable(false)
     }
 
+    // Un condicional para evitar que se agreguen mesas sin productos o sin nombre del cliente
     function handleAddOrderToTable () {
-        let order = {
-            productList : productList,
-            tableNumber : tableNumber.length,
-            client : value,
+        if (value.length >= 3 && productList.length >= 1){
+            let order = {
+                productsOnOrder : productList,
+                tableNumber : tableNumber.length +1,
+                client : value,
+            }
+            dispatch(addOrderToTable( order ))
+            dispatch(changeCart())
+            dispatch(circleAddedTable())
         }
-        dispatch(addOrderToTable( order ))
-        dispatch(changeCart())
-        dispatch(circleAddedTable())
+        else {
+
+        }
     }
 
     return (

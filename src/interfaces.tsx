@@ -21,11 +21,12 @@ export interface Tables {
 export interface InitialState {
   menuTables : string
   productList : Product[]
-  cart: string
-  listPriceAndIcons: Product[]
-  priceCart: number
-  tables: Table[]
-  circleAdd: boolean
+  cart : string
+  listPriceAndIcons : Product[]
+  priceCart : number
+  tables : Table[]
+  circleAdd : boolean
+  currentOrder : Table
 }
 
 export interface ProductCardProps {
