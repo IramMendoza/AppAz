@@ -39,7 +39,7 @@ const Cart = () => {
   return (
 
     <motion.div
-      className="backdrop-blur-sm bg-white/50 fixed bottom-0 w-screen rounded-t-3xl"
+      className="backdrop-blur-sm bg-white/70 fixed bottom-0 w-screen rounded-t-3xl"
       initial={{ y : 0 }}
       animate={animate}
       variants={variants}

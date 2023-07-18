@@ -126,17 +126,17 @@ const reducer = ( state = initialState, action : Action ) => {
                     priceCart : totalPriceUpdated }
         
         case UPDATE_TABLE:
-            const updatedOrder : Table = action.payload
+            let updatedOrder : Table = action.payload
             console.log(updatedOrder)
-            const filteredList = state.tables.filter(table => table.client !== updatedOrder.client)
+            let filteredList = state.tables.filter(table => table.client !== updatedOrder.client)
             filteredList.push(updatedOrder)
-            console.log(filteredList, "esta es la filtered list")
+            let newProductList : Product[] = []
             return {
                 ...state,
                 tables : filteredList,
-                currentOrder : {},
-                productList: [],
-                listPriceAndIcons : [],
+                currentOrder : initialState.currentOrder,
+                productList : newProductList,
+                listPriceAndIcons : newProductList,
                 circleAdd : true,
                 priceCart : 0,
                 cart : 'close',

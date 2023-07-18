@@ -36,15 +36,15 @@ const ProductOnList = ({product, price, amount} : ProductOnList) => {
   return (
     <AnimatePresence>
       <motion.div
-      className=" flex justify-around bg-slate-100 rounded-2xl h-[23px] w-[90%] m-1 shadow-2xl" 
+      className=" flex justify-around bg-slate-100 rounded-2xl h-[23px] w-[95%] m-1 shadow-2xl" 
       initial={{ x : -300 }}
       animate={animate}
       variants={variants}
       transition={{ duration : 0.1 }}
       >
-          <p className=" w-[60%] text-sm font-medium ml-3">{product}</p>
+          <p className=" w-[68%] text-sm font-medium ml-2">{product}</p>
 
-          <p className=' text-slate-700 text-sm'>{price}$</p>
+          <p className=' text-slate-700 text-sm mr-2'>{price}$</p>
 
           <motion.p 
             className=' text-slate-700 font-semibold text-sm'
@@ -54,7 +54,7 @@ const ProductOnList = ({product, price, amount} : ProductOnList) => {
             x{amount}
           </motion.p>
 
-          <div className=' w-[23px] flex justify-end ml-2'>
+          <div className=' w-[20px]'>
             <img
             onClick={handleDelete}
             src={Cross}/>
