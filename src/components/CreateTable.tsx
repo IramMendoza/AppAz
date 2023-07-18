@@ -6,7 +6,7 @@ import { addOrderToTable, changeCart, circleAddedTable } from "../actions"
 const CreateTable = () => {
     
     const listPriceAndIcons = useSelector<InitialState, Product[]>(state => state.listPriceAndIcons)
-    const tableNumber = useSelector <InitialState, Table[]>( state => state.tables)
+    const tables = useSelector <InitialState, Table[]>( state => state.tables)
     const productList = useSelector <InitialState, Product[]>( state => state.productList)
     const dispatch = useDispatch()
     const [value, setValue] = useState("")
@@ -22,11 +22,14 @@ const CreateTable = () => {
 
     // Un condicional para evitar que se agreguen mesas sin productos o sin nombre del cliente
     function handleAddOrderToTable () {
-        if (value.length >= 3 && productList.length >= 1){
+
+        let isInTables = tables.some( (table) => table.client === value )
+
+        if (value.length >= 3 && productList.length >= 1 && isInTables === false){
             let order = {
                 productList : productList,
                 listPriceAndIcons :listPriceAndIcons,
-                tableNumber : tableNumber.length +1,
+                tableNumber : tables.length +1,
                 client : value,
             }
             dispatch(addOrderToTable( order ))

@@ -4,6 +4,7 @@ import { changeToMenu } from "../actions"
 import { changeToTables } from "../actions"
 import { InitialState } from "../interfaces"
 import Logo from '../assets/Logo menroz.png'
+import UpIcon from '../assets/upIcon.png'
 import Menu from '../assets/fast-food-Icon.png'
 import TablesIcon from '../assets/tableIconPng.png'
 import AddCircle from "../components/AddCircle"
@@ -46,6 +47,12 @@ const Navbar = () => {
     dispatch( changeNavbar ('stop') )
   }
 
+  function handleChangeNavbar () {
+    dispatch( changeNavbar('close'))
+  }
+
+  // El condicional funciona para poner un boton de salida al modo de pago del navbar
+
   return (
     <div className=" relative">
       <motion.div 
@@ -62,19 +69,36 @@ const Navbar = () => {
         </div>
 
         <div className=" w-full flex justify-around">
-          <img
-          className="w-[20px] mt-3" 
-          src={Logo}/>
 
-          <img
-          className="w-[30px] m-2 mr-1 mt-3"
-          src={Menu}
-          onClick={handleClickMenu}/>
+          { navbarState === 'open' 
+          
+          ? 
 
-          <img
-          className=" text-white w-[35px] mt-3 mb-1"
-          src={TablesIcon}
-          onClick={handleClickTables}/>
+            <div>
+              <img className="w-[35px]"
+              src={UpIcon}
+              onClick={handleChangeNavbar}/>
+            </div> 
+
+          :
+
+            <div className=" w-full flex justify-around">
+              <img
+              className="w-[20px] mt-3" 
+              src={Logo}/>
+
+              <img
+              className="w-[30px] m-2 mr-1 mt-3"
+              src={Menu}
+              onClick={handleClickMenu}/>
+
+              <img
+              className=" text-white w-[35px] mt-3 mb-1"
+              src={TablesIcon}
+              onClick={handleClickTables}/>
+            </div>
+          }
+
         </div>
 
       </motion.div>

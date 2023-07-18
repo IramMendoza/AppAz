@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux"
-import { changeNavbar } from "../actions"
+import { goToPay } from "../actions"
 
 const PayButton = () => {
 
   const dispatch = useDispatch()
 
   function handleChangeNavbar () {
-    dispatch( changeNavbar ('open') )
+    dispatch( goToPay () )
   }
   return (
     <div>

@@ -1,4 +1,4 @@
-import { CHANGE_CART, CHANGE_TO_MENU } from "./actions"
+import { CHANGE_CART, CHANGE_TO_MENU, GO_TO_PAY } from "./actions"
 import { CIRCLE_ADDED_TABLE } from "./actions"
 import { CHANGE_TO_TABLES } from "./actions"
 import { ADD_PRODUCT_TO_LIST } from "./actions"
@@ -8,6 +8,7 @@ import { ADD_ORDER_TO_TABLE } from "./actions"
 import { SEE_CURRENT_ORDER } from "./actions"
 import { UPDATE_TABLE } from "./actions"
 import { CHANGE_NAVBAR } from "./actions"
+import { PAY_ORDER } from "./actions"
 import { Action, InitialState, Product, Table } from "./interfaces"
 import { products } from "./products"
 
@@ -34,10 +35,14 @@ const reducer = ( state = initialState, action : Action ) => {
     switch (action.type) {
 
         case CHANGE_TO_MENU :
-            return { ...state, menuTables : 'menu' }
+            return { ...state, 
+                menuTables : 'menu',
+                circleAdd : false }
         
         case CHANGE_TO_TABLES :
-            return { ...state, menuTables : 'tables' }
+            return { ...state, 
+                menuTables : 'tables', 
+                circleAdd : false }
 
         case ADD_PRODUCT_TO_LIST :
         // Buscar el producto que coincide con el payload
@@ -125,7 +130,8 @@ const reducer = ( state = initialState, action : Action ) => {
                     productList : currentOrder?.productList || [],
                     currentOrder : currentOrder,
                     listPriceAndIcons : currentOrder?.listPriceAndIcons,
-                    priceCart : totalPriceUpdated }
+                    priceCart : totalPriceUpdated,
+                    cart : 'open' }
         
         case UPDATE_TABLE:
             let updatedOrder : Table = action.payload
@@ -147,7 +153,27 @@ const reducer = ( state = initialState, action : Action ) => {
         case CHANGE_NAVBAR:
             return {
                 ...state,
-                navbar : action.payload
+                navbar : action.payload,
+                circleAdd : false
+            }
+        
+        case GO_TO_PAY:
+            return {
+                ...state,
+                navbar : 'open',
+                cart : 'close'
+            }
+        
+        case PAY_ORDER:
+            return {
+                ...state,
+                productList : [],
+                listPriceAndIcons : [],
+                cart : 'close',
+                priceCart : 0,
+                circleAdd : true,
+                currentOrder : initialState.currentOrder,
+                navbar : 'close'
             }
 
         default:

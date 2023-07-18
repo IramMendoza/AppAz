@@ -1,4 +1,4 @@
-import { seeCurrentOrder } from "../actions"
+import { seeCurrentOrder,  } from "../actions"
 import { useDispatch } from "react-redux"
 
 interface TableProps {
@@ -32,7 +32,7 @@ const TableCard = ({tableNumber, client} : TableProps) => {
         <button 
         className=" bg-gradient-to-r from-cyan-600 to-sky-600 text-white py-1 px-3 rounded-2xl m-2 mt-1 mb-3"
         onClick={handleSeeCurrentOrder}>
-          Ver
+          Abrir
         </button>
       </div>
     </div>

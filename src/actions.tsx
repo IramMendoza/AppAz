@@ -91,3 +91,19 @@ export const changeNavbar = (stop : string) => {
         payload : stop
     }
 }
+
+export const GO_TO_PAY = "GO_TO_PAY"
+
+export const goToPay = () => {
+    return {
+        type : GO_TO_PAY
+    }
+}
+
+export const PAY_ORDER = "PAY_ORDER"
+
+export const payOrder = () => {
+    return {
+        type : PAY_ORDER
+    }
+}
