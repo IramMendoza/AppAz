@@ -82,3 +82,12 @@ export const updateTable = (order : object) => {
         payload : order
     }
 }
+
+export const CHANGE_NAVBAR = "CHANGE_NAVBAR"
+
+export const changeNavbar = (stop : string) => {
+    return {
+        type : CHANGE_NAVBAR,
+        payload : stop
+    }
+}

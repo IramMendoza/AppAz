@@ -47,7 +47,7 @@ const ProductOnList = ({product, price, amount} : ProductOnList) => {
           <p className=' text-slate-700 text-sm mr-2'>{price}$</p>
 
           <motion.p 
-            className=' text-slate-700 font-semibold text-sm'
+            className=' text-slate-700 font-bold text-sm'
             initial={{ scale : 1 }}
             animate={{ scale : [2,1] }}
             transition={{ duration : 1 }}>

@@ -7,7 +7,7 @@ import ProductList from "./ProductList"
 import IconsCart from "./IconsCart"
 import PriceOrder from "./PriceOrder"
 import CreateTable from "./CreateTable"
-import Pay from "./Pay"
+import PayButton from "./PayButton"
 import ClientOrder from "./ClientOrder"
 import UpdateOrder from "./UpdateOrder"
 
@@ -57,7 +57,7 @@ const Cart = () => {
 
             <PriceOrder/>
 
-            <Pay/>
+            <PayButton/>
 
             <div>
               {

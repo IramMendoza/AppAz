@@ -7,6 +7,7 @@ import { DELETE_ALL_PRODUCTS_FROM_LIST } from "./actions"
 import { ADD_ORDER_TO_TABLE } from "./actions"
 import { SEE_CURRENT_ORDER } from "./actions"
 import { UPDATE_TABLE } from "./actions"
+import { CHANGE_NAVBAR } from "./actions"
 import { Action, InitialState, Product, Table } from "./interfaces"
 import { products } from "./products"
 
@@ -24,7 +25,8 @@ const initialState : InitialState = {
         listPriceAndIcons : [],
         client : '',
         tableNumber : 0
-    }
+    },
+    navbar : 'close'
 }
 
 
@@ -140,6 +142,12 @@ const reducer = ( state = initialState, action : Action ) => {
                 circleAdd : true,
                 priceCart : 0,
                 cart : 'close',
+            }
+        
+        case CHANGE_NAVBAR:
+            return {
+                ...state,
+                navbar : action.payload
             }
 
         default:

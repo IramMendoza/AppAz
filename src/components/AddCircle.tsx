@@ -14,7 +14,7 @@ const AddCircle = () => {
   if ( circleState === true ){
     setTimeout ( () => {
       dispatch(circleAddedTable())
-      }, 1010
+      }, 1000
     )
   }
 
