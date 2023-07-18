@@ -8,14 +8,31 @@ const PayOrder = () => {
     const currentOrder = useSelector<InitialState, Table>(state => state.currentOrder)
     const priceOrder = useSelector<InitialState, number>(state => state.priceCart)
     const productList = useSelector<InitialState, Product[]>(state => state.productList)
+    const [moreOrLessPay, setMoreOrLessPay] = useState('')
     const [value, setValue] = useState(0)
-    const [backToClient, setBackToClient] = useState(0)
     const dispatch = useDispatch()
-    const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+
+    let handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
         // Actualizamos el estado con el valor actual del input
-        const inputValue = e.target.value
-        setValue(parseInt(inputValue,10000))
-      }
+        // Hay que convertirlo en un un number antes de poder hacer los calculos del
+        // cambio para el cliente
+        let inputValue = e.target.value
+        let inputValueAsANumber = parseInt(inputValue)
+        setValue(inputValueAsANumber)
+        if ( inputValueAsANumber < priceOrder ){
+            setMoreOrLessPay(`Faltan : ${inputValueAsANumber - priceOrder}$`)
+        }
+        if ( inputValueAsANumber > priceOrder ){
+            setMoreOrLessPay(`Devuelve al cliente : ${inputValueAsANumber - priceOrder}$`)
+        }
+        if ( inputValueAsANumber === priceOrder ){
+            setMoreOrLessPay(`¡Perfecto!`)
+        }
+        if ( isNaN(inputValueAsANumber) ){
+            setMoreOrLessPay('Coloca una cantidad')
+        }
+    }
+    
     
     
     function handlePayOrder () {
@@ -136,8 +153,7 @@ const PayOrder = () => {
             onChange={handleChange} />
         </div>
         <div className=" w-full flex justify-center">
-        <p className=" text-white text-2xl font-bold">Devuelve al Cliente :</p>
-        <p className=" text-white text-2xl font-bold ml-2">${backToClient}</p>
+        <p className=" text-white text-2xl font-bold">{moreOrLessPay}</p>
         </div>
 
         <div className=" w-full flex justify-center pt-3 pb-5">
