@@ -1,3 +1,4 @@
+import { act } from "react-dom/test-utils"
 import { CHANGE_CART, CHANGE_TO_MENU, GO_TO_PAY } from "./actions"
 import { CIRCLE_ADDED_TABLE } from "./actions"
 import { CHANGE_TO_TABLES } from "./actions"
@@ -165,6 +166,24 @@ const reducer = ( state = initialState, action : Action ) => {
             }
         
         case PAY_ORDER:
+            let currentClient = action.payload
+            let isInTables = state.tables.some( (table) => table.client === currentClient )
+            if ( isInTables ){
+                let updatedTables = state.tables.filter( (table) => table.client !== currentClient )
+                return {
+                    ...state,
+                    productList : [],
+                    listPriceAndIcons : [],
+                    cart : 'close',
+                    priceCart : 0,
+                    circleAdd : true,
+                    currentOrder : initialState.currentOrder,
+                    navbar : 'close',
+                    tables : updatedTables
+                }
+            }
+
+            else
             return {
                 ...state,
                 productList : [],
@@ -175,6 +194,7 @@ const reducer = ( state = initialState, action : Action ) => {
                 currentOrder : initialState.currentOrder,
                 navbar : 'close'
             }
+            
 
         default:
             return state

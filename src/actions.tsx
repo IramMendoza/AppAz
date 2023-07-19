@@ -102,8 +102,9 @@ export const goToPay = () => {
 
 export const PAY_ORDER = "PAY_ORDER"
 
-export const payOrder = () => {
+export const payOrder = (orderClient : string) => {
     return {
-        type : PAY_ORDER
+        type : PAY_ORDER,
+        payload : orderClient
     }
 }
