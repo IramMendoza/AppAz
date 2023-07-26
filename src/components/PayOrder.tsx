@@ -9,7 +9,7 @@ const PayOrder = () => {
     const priceOrder = useSelector<InitialState, number>(state => state.priceCart)
     const productList = useSelector<InitialState, Product[]>(state => state.productList)
     const [moreOrLessPay, setMoreOrLessPay] = useState('')
-    const [value, setValue] = useState()
+    const [value, setValue] = useState<number>()
     const dispatch = useDispatch()
 
     let handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {

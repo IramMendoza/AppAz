@@ -11,6 +11,8 @@ import boneless from '../assets/bonelessMini.jpeg'
 import beer from '../assets/cervezaSolaMini.jpeg'
 import michelada from '../assets/micheladaSencillaMini.jpeg'
 import micheladaCubana from '../assets/micheladaMini.jpeg'
+import guacamoleBurger from '../assets/guacamoleBurgerMini.jpeg'
+import doubleBurger from '../assets/doubleBurgerFriesMini.jpeg'
 
 const Menu : React.FC = () => {
 
@@ -35,6 +37,8 @@ const Menu : React.FC = () => {
         <ProductCard product="Hamburguesa de Pollo" price={65} id='1' img={chickenBurger} />
         <ProductCard product="Hamburguesa de Res" price={75} id="2" img={burger} />
         <ProductCard product="Hamburguesa de Arrachera" price={85} id="3" img={arracheraBurger} />
+        <ProductCard product="Hamburguesa de Guacamole" price={95} id='9' img={guacamoleBurger}/>
+        <ProductCard product="Hamburguesa Doble" price={120} id="10" img={doubleBurger}/>
       </ConteinerProductCard>
 
       <ConteinerProductCard title="Complementos">

@@ -1,4 +1,3 @@
-import { act } from "react-dom/test-utils"
 import { CHANGE_CART, CHANGE_TO_MENU, GO_TO_PAY } from "./actions"
 import { CIRCLE_ADDED_TABLE } from "./actions"
 import { CHANGE_TO_TABLES } from "./actions"
@@ -12,6 +11,7 @@ import { CHANGE_NAVBAR } from "./actions"
 import { PAY_ORDER } from "./actions"
 import { Action, InitialState, Product, Table } from "./interfaces"
 import { products } from "./products"
+import { Reducer } from "redux"
 
 
 const initialState : InitialState = {
@@ -32,7 +32,7 @@ const initialState : InitialState = {
 }
 
 
-const reducer = ( state = initialState, action : Action ) => {
+const reducer : Reducer = ( state = initialState, action : Action ) => {
     switch (action.type) {
 
         case CHANGE_TO_MENU :
@@ -51,15 +51,15 @@ const reducer = ( state = initialState, action : Action ) => {
         // Verificar si el producto ya está en la lista
         let productCopy = { ...productToAdd } as Product
         //Saco una copia del producto para que pueda sumar +1 cada vez que es agregado el producto
-        let isInProductList = state.productList.some( (product) => product.product === productCopy?.product)
+        let isInProductList = state.productList.some( (product : Product) => product.product === productCopy.product)
         // Si el producto está en la lista y se encontró
         if (isInProductList && productToAdd) {
             // Busco el pruducto dentro de productList para tomar la cantidad que tiene 
-            let productFinded = state.productList.find( (product) => product.product === action.payload) as Product
+            let productFinded = state.productList.find( (product : Product) => product.product === action.payload) as Product
             // Crear una copia del producto con la cantidad incrementada
-            let updatedProduct = { ...productFinded, amount: productFinded?.amount + 1 }
+            let updatedProduct = { ...productFinded, amount: productFinded.amount + 1 }
             // Crear un nuevo array con el producto actualizado y los demás iguales
-            let updatedProductList = state.productList.map( (product) => product.product === productCopy?.product ? updatedProduct : product )
+            let updatedProductList = state.productList.map( (product : Product) => product.product === productCopy.product ? updatedProduct : product )
             // Devolver el nuevo estado con el array actualizado
             // ESTA PARTE ES PARA SACAR EL TOTAL DEL PRECIO
             let updatedListPriceAndIcons = [...state.listPriceAndIcons, productToAdd]
@@ -86,9 +86,9 @@ const reducer = ( state = initialState, action : Action ) => {
 
         case DELETE_PRODUCT_FROM_LIST:
             // Hay que sacar una copia de productList para poder modificarla
-            let updatedProductList = state.productList.filter( product => product.product !== action.payload )
-            let updatedListPriceAndIcons = state.listPriceAndIcons.filter ( product => product.product !== action.payload )
-            let totalPrice = updatedListPriceAndIcons.reduce((total, product) => total + product.price, 0)
+            let updatedProductList = state.productList.filter( (product : Product) => product.product !== action.payload )
+            let updatedListPriceAndIcons = state.listPriceAndIcons.filter ( (product : Product) => product.product !== action.payload )
+            let totalPrice = updatedListPriceAndIcons.reduce((total : number, product : Product) => total + product.price, 0)
             return {... state, productList: updatedProductList,
                     listPriceAndIcons : updatedListPriceAndIcons,
                     priceCart : totalPrice }
@@ -125,8 +125,8 @@ const reducer = ( state = initialState, action : Action ) => {
                 return { ...state, circleAdd: false }
 
         case SEE_CURRENT_ORDER:
-            let currentOrder = state.tables.find( (table) => table.client === action.payload)
-            let totalPriceUpdated = currentOrder?.listPriceAndIcons.reduce((total, product) => total + product.price, 0)
+            let currentOrder = state.tables.find( (table : Table) => table.client === action.payload)
+            let totalPriceUpdated = currentOrder.listPriceAndIcons.reduce((total : number, product : Product) => total + product.price, 0)
             return {... state, 
                     productList : currentOrder?.productList || [],
                     currentOrder : currentOrder,
@@ -137,7 +137,7 @@ const reducer = ( state = initialState, action : Action ) => {
         case UPDATE_TABLE:
             let updatedOrder : Table = action.payload
             console.log(updatedOrder)
-            let filteredList = state.tables.filter(table => table.client !== updatedOrder.client)
+            let filteredList = state.tables.filter((table : Table) => table.client !== updatedOrder.client)
             filteredList.push(updatedOrder)
             let newProductList : Product[] = []
             return {
@@ -167,9 +167,9 @@ const reducer = ( state = initialState, action : Action ) => {
         
         case PAY_ORDER:
             let currentClient = action.payload
-            let isInTables = state.tables.some( (table) => table.client === currentClient )
+            let isInTables = state.tables.some( (table : Table) => table.client === currentClient )
             if ( isInTables ){
-                let updatedTables = state.tables.filter( (table) => table.client !== currentClient )
+                let updatedTables = state.tables.filter( (table : Table) => table.client !== currentClient )
                 return {
                     ...state,
                     productList : [],
@@ -194,7 +194,7 @@ const reducer = ( state = initialState, action : Action ) => {
                 currentOrder : initialState.currentOrder,
                 navbar : 'close'
             }
-            
+
 
         default:
             return state

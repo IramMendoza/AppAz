@@ -14,10 +14,10 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
 
     return (
         <div
-        className=' bg-slate-200 rounded-2xl ml-3 mr-3 shadow-2xl'
+        className=' bg-slate-200 md:bg-white rounded-2xl ml-3 mr-3 pb-2 md:shadow-inner shadow-2xl'
         key={id}
         >
-            <div className='w-[15rem]'>
+            <div className='w-[15rem] md:w-[13rem]'>
                 <img
                 className=' rounded-t-2xl'
                 src={img} 
@@ -26,7 +26,7 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
             </div>
 
             <p 
-            className=' text-center font-bold mt-1'>
+            className=' md:text-sm text-center text-slate-800 font-bold mt-1'>
             {product}
             </p>
 
@@ -38,7 +38,7 @@ const ProductCard = ({ product, price, img, id } : ProductCardProps) => {
             <div 
             className='flex justify-center'>
                 <button
-                className=' bg-gradient-to-r from-teal-500 to-emerald-500 text-white py-1 px-2 rounded-2xl m-2'
+                className=' bg-gradient-to-r from-teal-500 to-emerald-500 text-white py-1 px-2 rounded-2xl mt-1 mb-2'
                 id='styleButton' 
                 onClick={handleClickAdd}>Agregar</button>
             </div>

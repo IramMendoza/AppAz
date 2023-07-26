@@ -7,4 +7,9 @@ export const products = [
     { 'product' : 'Cerveza Sola', 'type' : 'beer', 'price' : 65, 'amount' : 1, 'id' : 6, 'img' : './assets/cervezaSola.jpeg' },
     { 'product' : 'Michelada Sencilla', 'type' : 'beer', 'price' : 75, 'amount' : 1, 'id' : 7, 'img' : './assets/micheladaSencilla.jpeg' },
     { 'product' : 'Michelada Cubana', 'type' : 'beer', 'price' : 85, 'amount' : 1, 'id' : 8, 'img' : './assets/michelada.jpeg' },
+    { 'product' : 'Hamburguesa de Guacamole', 'type' : 'burger', 'price' : 95, 'amount' : 1, 'id' : 9, 'img' : './assets/guacamoleBurgerMini.jpeg'},
+    { 'product' : 'Hamburguesa Doble', 'type' : 'burger', 'price' : 120, 'amount' : 1, 'id' : 10, 'img' : './assets/doubleBurgerMini'},
 ]
+
+
+

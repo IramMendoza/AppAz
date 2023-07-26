@@ -26,7 +26,7 @@ export interface InitialState {
   listPriceAndIcons : Product[]
   priceCart : number
   tables : Table[]
-  circleAdd : boolean
+  circleAdd : boolean 
   currentOrder : Table
   navbar : string
 }
