@@ -5,7 +5,7 @@ import store from './store.ts'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement).render(
     <Provider store={store}>
       <BrowserRouter>
         <App/>
